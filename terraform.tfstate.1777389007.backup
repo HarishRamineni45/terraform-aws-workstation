@@ -1,0 +1,240 @@
+{
+  "version": 4,
+  "terraform_version": "1.14.5",
+  "serial": 12,
+  "lineage": "5b32407c-38fd-63b2-aeee-3d61753f5ebd",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "data",
+      "type": "aws_ami",
+      "name": "ramineni",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allow_unsafe_filter": null,
+            "architecture": "x86_64",
+            "arn": "arn:aws:ec2:us-east-1::image/ami-0220d79f3f480ecf5",
+            "block_device_mappings": [
+              {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                  "delete_on_termination": "true",
+                  "encrypted": "false",
+                  "iops": "3000",
+                  "snapshot_id": "snap-0392f823dead734e3",
+                  "throughput": "125",
+                  "volume_initialization_rate": "0",
+                  "volume_size": "20",
+                  "volume_type": "gp3"
+                },
+                "no_device": "",
+                "virtual_name": ""
+              }
+            ],
+            "boot_mode": "uefi-preferred",
+            "creation_date": "2026-01-14T00:00:26.000Z",
+            "deprecation_time": "2028-01-14T00:00:26.000Z",
+            "description": "Redhat-9-DevOps-Practice",
+            "ena_support": true,
+            "executable_users": null,
+            "filter": [
+              {
+                "name": "name",
+                "values": [
+                  "Redhat-9-DevOps-Practice"
+                ]
+              },
+              {
+                "name": "root-device-type",
+                "values": [
+                  "ebs"
+                ]
+              },
+              {
+                "name": "virtualization-type",
+                "values": [
+                  "hvm"
+                ]
+              }
+            ],
+            "hypervisor": "xen",
+            "id": "ami-0220d79f3f480ecf5",
+            "image_id": "ami-0220d79f3f480ecf5",
+            "image_location": "973714476881/Redhat-9-DevOps-Practice",
+            "image_owner_alias": "",
+            "image_type": "machine",
+            "imds_support": "",
+            "include_deprecated": false,
+            "kernel_id": "",
+            "last_launched_time": "",
+            "most_recent": true,
+            "name": "Redhat-9-DevOps-Practice",
+            "name_regex": null,
+            "owner_id": "973714476881",
+            "owners": [
+              "973714476881"
+            ],
+            "platform": "",
+            "platform_details": "Red Hat Enterprise Linux",
+            "product_codes": [],
+            "public": true,
+            "ramdisk_id": "",
+            "region": "us-east-1",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "root_snapshot_id": "snap-0392f823dead734e3",
+            "sriov_net_support": "simple",
+            "state": "available",
+            "state_reason": {
+              "code": "UNSET",
+              "message": "UNSET"
+            },
+            "tags": {},
+            "timeouts": null,
+            "tpm_support": "",
+            "uefi_data": null,
+            "usage_operation": "RunInstances:0010",
+            "virtualization_type": "hvm"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "workstation",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:212984411695:security-group/sg-015a28992c1cd43cd",
+            "description": "Allow TLS inbound traffic and all outbound traffic",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [
+                  "::/0"
+                ],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-015a28992c1cd43cd",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [
+                  "::/0"
+                ],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "allow-all-workstation",
+            "name_prefix": "",
+            "owner_id": "212984411695",
+            "region": "us-east-1",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "allow-all-workstation"
+            },
+            "tags_all": {
+              "Name": "allow-all-workstation"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-085cf5c97012c810b"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "212984411695",
+            "id": "sg-015a28992c1cd43cd",
+            "region": "us-east-1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "terraform_data",
+      "name": "cluster_destroy",
+      "provider": "provider[\"terraform.io/builtin/terraform\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "5771e877-c39d-a152-68a7-c570dcd533ca",
+            "input": {
+              "value": {
+                "host": "54.167.242.252",
+                "password": "DevOps@321"
+              },
+              "type": [
+                "object",
+                {
+                  "host": "string",
+                  "password": "string"
+                }
+              ]
+            },
+            "output": {
+              "value": {
+                "host": "54.167.242.252",
+                "password": "DevOps@321"
+              },
+              "type": [
+                "object",
+                {
+                  "host": "string",
+                  "password": "string"
+                }
+              ]
+            },
+            "triggers_replace": null
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "input"
+              },
+              {
+                "type": "get_attr",
+                "value": "password"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "aws_instance.workstation",
+            "aws_security_group.workstation",
+            "data.aws_ami.ramineni"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
