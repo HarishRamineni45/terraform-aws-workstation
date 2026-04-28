@@ -27,7 +27,7 @@ resource "aws_instance" "workstation" {
   )
 }
 
-resource "terraform_data" "cluster_destroy" {
+<!-- resource "terraform_data" "cluster_destroy" {
   input = {
     host     = aws_instance.workstation.public_ip
     password = var.ssh_password
@@ -45,7 +45,7 @@ resource "terraform_data" "cluster_destroy" {
       password = self.input.password
     }
   }
-}
+} -->
 
 resource "aws_security_group" "workstation" {
   name        = "allow-all-workstation" # this is for AWS account
